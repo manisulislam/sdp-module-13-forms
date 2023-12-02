@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h1 class="text-center mt-5">the django form  page</h1>
+<form method="post" style="width: 50%; height: 540px; margin: auto;" class="mt-5" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{form|crispy}}
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+</form>
+
+{% endblock %}
