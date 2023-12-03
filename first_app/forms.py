@@ -43,3 +43,9 @@ class student_data(forms.Form):
     email= forms.CharField(widget=forms.EmailInput, validators=[validators.EmailValidator(message="enter valid email ")])
     age=forms.IntegerField(validators=[validators.MinValueValidator(18, message="enter at least 18 years"), validators.MaxValueValidator(24, message="age must be 24 years")])
     file= forms.FileField(validators=[validators.FileExtensionValidator(allowed_extensions=["pdf"], message="only pdf file is allowed")])
+    
+    
+class passwordValidatorProject(forms.Form):
+    name= forms.CharField(max_length=100)
+    password= forms.CharField(widget=forms.PasswordInput)
+    confirm_password= forms.CharField(widget=forms.PasswordInput)
