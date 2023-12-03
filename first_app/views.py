@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . forms import contactForm
+from . forms import contactForm, student_data
 # Create your views here.
 
 def home(request):
@@ -38,4 +38,14 @@ def django_form(request):
     else:
         form = contactForm()
     return render(request, 'django_form.html', {'form': form} )
-   
+
+def student_data_form(request):
+    if request.method == 'POST':
+        form = student_data(request.POST)
+        if form.is_valid():
+            # name = form.cleaned_data['name']
+            # email = form.cleaned_data['email']
+            return render(request, 'student_data.html', {'form':form})
+    else:
+        form = student_data()
+    return render(request, 'student_data.html', {'form': form} )
